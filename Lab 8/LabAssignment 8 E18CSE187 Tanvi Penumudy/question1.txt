@@ -1,0 +1,111 @@
+package E18CSE187lab8;
+import java.util.Scanner;
+
+class Node{
+	int data;
+	Node prev,next;
+}
+
+class LinkedList{
+	Node head;
+	
+	public void insert(int n) {
+                //insert method
+		Node node=new Node();
+		Node t;
+		node.prev=node.next=null;
+		node.data=n;
+		
+		if(head==null){
+			head=node;
+		}
+		
+		else if(n<=head.data){
+			node.next.prev=node;
+			node.next=head;
+			head=node;
+		}
+		
+		else{
+			t=head;
+			
+			while(t.next!=null && t.next.data<n){
+				t=t.next;
+			}
+			node.next=t.next;
+			
+			if(t.next!=null){
+				node.next.prev=node;
+			}
+			
+			t.next=node;
+			node.prev=t;
+		}		
+	}
+	public void delete(int n){
+                //delete method
+		Node t=head;
+		
+		while(t!=null){
+			if(n==t.data){
+				t.prev.next=t.next;
+			}
+			
+			t=t.next;
+		}
+	}	
+	
+	public void print(){
+                //print menthod
+		Node t=head;
+		
+		while(t!=null){
+			System.out.print(t.prev+"\t"+t.data+"\t"+t+"\t"+t.next);
+			System.out.println();
+			t=t.next;
+			
+		}
+	}
+}
+public class question1{
+	public static void main(String[] args){
+		Scanner in=new Scanner(System.in);
+		LinkedList l=new LinkedList();
+		int inp=0;
+		
+		while(inp!=4){
+			System.out.println("Choose:\n1.Print\n2.Insert\n3.Delete\n4.Quit");
+			inp=in.nextInt();
+			
+			switch(inp){
+                        //switch case for input
+			
+			case 1:
+				l.print();
+				break;
+				
+			case 2:
+				System.out.print("Number of elements to be inserted?");
+				int in2=in.nextInt();
+				for(int i=0;i<in2;i++) {
+					System.out.print("Enter data "+(i+1)+": ");
+					int in1=in.nextInt();
+					l.insert(in1);
+				}
+				break;
+				
+			case 3:
+				System.out.println("Enter data to be deleted: ");
+				int in3=in.nextInt();
+				l.delete(in3);
+				break;
+				
+			case 4:
+				System.out.println("Program Successfully Terminated!");
+				break;
+			}
+		}
+		in.close();
+	}
+}
+

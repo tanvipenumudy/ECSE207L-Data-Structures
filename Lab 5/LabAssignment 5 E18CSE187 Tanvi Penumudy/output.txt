@@ -1,0 +1,20 @@
+1)8  11  12 
+
+2)35
+
+3)Linked List before removing duplicates : 
+ 
+10 12 11 11 12 11 10 
+Linked List after removing duplicates : 
+ 
+10 12 11
+
+4)2 3 5 10 15 20 
+
+7)Linked list before calling swapNodes() 1 2 3 4 5 6 7 
+ Linked list after calling swapNodes() 1 2 4 3 5 6 7
+ 
+8)Given Linked list
+85 15 4 20 
+Reversed linked list 
+20 4 15 85 

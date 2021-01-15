@@ -1,0 +1,141 @@
+package E18CSE187lab8;
+import java.util.*;
+
+public class question2{
+	Node head;
+	
+	static class Node{
+		 Node prev;
+		 Node link;
+		 char data;
+		 
+		 Node(char data){
+			  this.data=data;
+			  prev=null;
+			  link=null;
+			  
+			  }
+		 
+	}
+	public static question2 insert(question2 list,char data){
+                 //insert method
+		 Node node=new Node(data);
+		 
+		 if(list.head==null){
+			 list.head=node;
+		 }
+		 
+		 else{
+			 Node last=list.head;
+			 while(last.link!=null){
+				 last=last.link;
+		 }
+			 last.link=node;
+			 node.prev=last;
+		 }
+		 
+		 return list;
+	}
+	
+	public static question2 insertAt(question2 list,char key,char data){
+                //insertat method
+		Node nodea= new Node(data);
+                Node point=list.head;
+        
+		if(point.data!=key){
+			point=point.link;
+		}
+		
+		point=point.link;
+		nodea.link=point.link;
+		point.link=nodea;
+		nodea.prev=point;
+		nodea.link.prev=nodea;
+		
+		return list;
+	}
+	public static question2 delete(question2 list,char k){
+                 //delete method
+		 Node point=list.head;
+		 Node b=null;
+		 
+		 if(point.data==k){
+			 list.head=point.link;
+			 point.link.prev=list.head;
+		 }
+		 
+		 else{
+			 
+			 while(point.data!=k){
+				 b=point;
+				 point=point.link;			 
+			 }
+			 
+		 }
+		 b.link=point.link;
+		 point.prev=b;
+		 return list;
+		 
+	}
+	public static void view(question2 list){
+                 //view method
+		 Node cur=list.head;
+		 
+		 while(cur!=null){
+			 System.out.println(cur.data);
+			 cur=cur.link;
+		 }
+		 
+	}
+	
+	public static void main(String args[]){
+		 question2 l=new question2();
+		
+		 Scanner sc = new Scanner(System.in);
+		 l=insert(l,'d');
+		 l=insert(l,'a');
+		 l=insert(l,'t');
+		 l=insert(l,'a');
+		 l=insert(l,'s');
+		 l=insert(l,'t');
+		 l=insert(l,'r');
+		 l=insert(l,'u');
+		 l=insert(l,'c');
+		 l=insert(l,'t');
+		 l=insert(l,'u');
+		 l=insert(l,'r');
+		 l=insert(l,'e');
+		 l=insert(l,'s');
+		 
+		 Node cura=l.head;
+		 System.out.println("Cursor is at Beginning\nPress 1: Move Right\nPress 2: Move Left\nPress 3: Insert\nPress 4: Delete");
+		 
+		 int in1=sc.nextInt();
+		 while(in1!=0){
+			 
+			 if(in1==1){
+				 cura=cura.link;
+			 }
+			 
+			 else if(in1==2){
+				 cura=cura.prev;
+			 }
+			 
+			 else if(in1==3){
+				 System.out.println("Enter Number to be Inserted");
+				 sc.nextLine();
+				 String c=sc.nextLine();
+				 insertAt(l,cura.data,c.charAt(0)); 
+			 }
+			 
+			 else if(in1==4){
+				 delete(l,cura.link.data);
+			 }
+			 
+			 System.out.println("Enter Function, else Press 0");
+			 in1=sc.nextInt();
+		 }
+		 view(l);
+		 
+		 }
+	}

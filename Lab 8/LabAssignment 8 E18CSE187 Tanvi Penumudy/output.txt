@@ -1,0 +1,103 @@
+question1:
+Choose:
+1.Print
+2.Insert
+3.Delete
+4.Quit
+
+2
+Number of elements to be inserted?5
+Enter data 1: 2
+Enter data 2: 3
+Enter data 3: 4
+Enter data 4: 5
+Enter data 5: 6
+Choose:
+1.Print
+2.Insert
+3.Delete
+4.Quit
+3
+Enter data to be deleted: 
+4
+Choose:
+1.Print
+2.Insert
+3.Delete
+4.Quit
+1
+null	2	E18CSE187lab8.Node@3f0ee7cb	E18CSE187lab8.Node@75bd9247
+E18CSE187lab8.Node@3f0ee7cb	3	E18CSE187lab8.Node@75bd9247	E18CSE187lab8.Node@7d417077
+E18CSE187lab8.Node@7dc36524	5	E18CSE187lab8.Node@7d417077	E18CSE187lab8.Node@35bbe5e8
+E18CSE187lab8.Node@7d417077	6	E18CSE187lab8.Node@35bbe5e8	null
+Choose:
+1.Print
+2.Insert
+3.Delete
+4.Quit
+2
+Number of elements to be inserted?1
+Enter data 1: 7
+Choose:
+1.Print
+2.Insert
+3.Delete
+4.Quit
+1
+null	2	E18CSE187lab8.Node@3f0ee7cb	E18CSE187lab8.Node@75bd9247
+E18CSE187lab8.Node@3f0ee7cb	3	E18CSE187lab8.Node@75bd9247	E18CSE187lab8.Node@7d417077
+E18CSE187lab8.Node@7dc36524	5	E18CSE187lab8.Node@7d417077	E18CSE187lab8.Node@35bbe5e8
+E18CSE187lab8.Node@7d417077	6	E18CSE187lab8.Node@35bbe5e8	E18CSE187lab8.Node@2c8d66b2
+E18CSE187lab8.Node@35bbe5e8	7	E18CSE187lab8.Node@2c8d66b2	null
+Choose:
+1.Print
+2.Insert
+3.Delete
+4.Quit
+4
+Program Successfully Terminated!
+
+question2:
+Cursor is at Beginning
+Press 1: Move Right
+Press 2: Move Left
+Press 3: Insert
+Press 4: Delete
+1
+Enter Function, else Press 0
+1
+Enter Function, else Press 0
+1
+Enter Function, else Press 0
+1
+Enter Function, else Press 0
+3
+Enter Character to be Inserted
+s
+Enter Function, else Press 0
+1
+Enter Function, else Press 0
+1
+Enter Function, else Press 0
+4
+Enter Function, else Press 0
+0
+d
+a
+t
+s
+a
+s
+t
+r
+c
+t
+u
+r
+e
+s
+
+question3:
+Polynomial P1:3x^4+2x^3+1x^2+0x^1
+Polynomial P2:1x^7+2x^5+0x^3
+Polynomial P1 x P2:3x^11+2x^10+7x^9+4x^8+2x^7+0x^6+0x^5+0x^4

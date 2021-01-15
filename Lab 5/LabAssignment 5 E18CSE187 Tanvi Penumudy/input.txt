@@ -1,0 +1,1 @@
+Inputs are already defined in the program within each question

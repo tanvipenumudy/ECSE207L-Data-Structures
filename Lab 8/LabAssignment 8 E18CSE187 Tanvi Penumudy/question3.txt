@@ -1,0 +1,133 @@
+package E18CSE187lab8;
+
+class PolyNode{
+	PolyNode link;
+	int coeff,expo;
+}
+
+class LinkedList1{
+	PolyNode head;
+	
+	public void insert(int coeff,int expo){
+                //insert method
+		PolyNode node=new PolyNode();
+		node.expo=expo;
+		node.coeff=coeff;
+		PolyNode prev=null;
+		PolyNode n=head;
+		
+		while(n!=null && n.expo>expo){
+			prev=n;
+			n=n.link;
+		}
+		
+		if(prev==null){
+			head=node;
+		}
+		
+		else{
+			prev.link=node;
+		}
+		
+		node.link=n;
+	}
+	
+	public void in(int coeff,int expo) {
+		PolyNode node=new PolyNode();
+		node.coeff=coeff;
+		node.expo=expo;
+	}
+	
+	public void delete(int del){
+		//delete method
+		if(head==null){
+			return;
+			}
+		
+		if(head.expo==del){ 
+			head=head.link;
+			}
+		
+		PolyNode p=head,c=head.link;
+		
+		while(c!=null) {
+			if(c.expo==del) {
+				p.link=c.link;
+			}
+			
+			p=p.link;
+			c=c.link;
+		}
+	}	
+	
+	public void print(){
+                //print method
+		PolyNode n=head;
+		
+		while(n.link!=null){
+			System.out.print(n.coeff+"x^"+n.expo+"+");
+			n=n.link;
+			
+		}
+		System.out.println(n.coeff+"x^"+n.expo);
+	}
+}
+
+public class question3{
+	public static LinkedList1 multiply(LinkedList1 P1,LinkedList1 P2){
+		LinkedList1 P=new LinkedList1();
+		PolyNode n1=P1.head,n2;
+		
+		int co,ex;
+		while(n1!=null) {
+			n2=P2.head;
+			while(n2!=null){			
+				co=n1.coeff*n2.coeff;
+				ex=n1.expo+n2.expo;
+				P.insert(co,ex);
+				n2=n2.link;
+			}
+			n1=n1.link;
+		}
+		n1=P.head;
+		while(n1!=null) {
+			n2=n1.link;
+			while(n2!=null) {
+				if(n1.expo==n2.expo) {
+					co=n1.coeff+n2.coeff;
+					ex=n2.expo;
+					P.delete(ex);
+					P.delete(ex);
+					P.insert(co,ex);
+					}
+				n2=n2.link;
+				}
+			n1=n1.link;
+			}
+		return P;
+		}
+	
+	public static void main(String[]args){
+		LinkedList1 P1=new LinkedList1();
+		LinkedList1 P2=new LinkedList1();
+		//inputing P1 and P2 coeffs and exponent powers
+		P1.insert(3,4);
+		P1.insert(2,3);
+		P1.insert(1,2);
+		P1.insert(0,1);
+		P2.insert(2,5);
+		P2.insert(1,7);
+		P2.insert(0,3);
+		
+		System.out.print("Polynomial P1:");
+		P1.print();
+		
+		System.out.print("Polynomial P2:");
+		P2.print();
+		
+		System.out.print("Polynomial P1 x P2:");
+		multiply(P1,P2).print();	
+		
+	}
+}
+
